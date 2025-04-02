@@ -3,18 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub README Viewer</title>
+    <title>GitHub Org Readmes</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const orgName = "readme-hub-test";
+            const apiUrl = `https://api.github.com/orgs/${orgName}/repos`;
+            
+            try {
+                const repoResponse = await fetch(apiUrl);
+                const repos = await repoResponse.json();
+                
+                const container = document.getElementById("content");
+                
+                for (const repo of repos) {
+                    const readmeUrl = `https://raw.githubusercontent.com/${orgName}/${repo.name}/main/README.md`;
+                    
+                    const readmeResponse = await fetch(readmeUrl);
+                    if (readmeResponse.ok) {
+                        const readmeText = await readmeResponse.text();
+                        const readmeHtml = marked.parse(readmeText);
+
+                        const repoDiv = document.createElement("div");
+                        repoDiv.innerHTML = `<h2>${repo.name}</h2>${readmeHtml}`;
+                        container.appendChild(repoDiv);
+                    }
+                }
+            } catch (error) {
+                console.error("Error fetching repos:", error);
+            }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.12/marked.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>GitHub Repositories - README Viewer</h1>
-        <div id="readmeContainer">
-            <!-- The fetched README content will be displayed here -->
-        </div>
-    </div>
-
-    <!-- Script to fetch and display README files -->
-    <script type="module" src="script.js"></script>
-
+    <h1>GitHub Organization README Files</h1>
+    <div id="content"></div>
 </body>
 </html>
