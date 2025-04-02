@@ -15,7 +15,7 @@ async function fetchReadmes() {
 
         const readmePromises = repos.map(async (repo) => {
             try {
-                const readmeResponse = await fetch(`https://api.github.com/repos/${ORG_NAME}/${repo.name}/readme`, {
+                const readmeResponse = await fetch(`https://api.github.com/repos/${ORG_NAME}/${repo.name}/README.md`, {
                     headers: { Accept: "application/vnd.github.v3+json" }
                 });
                 const readmeData = await readmeResponse.json();
