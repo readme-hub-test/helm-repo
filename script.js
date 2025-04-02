@@ -10,7 +10,7 @@ async function fetchReadmes() {
         const readmeText = await readmeContent.text();
         return {
             name: repo.name,
-            readmeHtml: marked(readmeText) // Parse the README text to HTML using marked
+            readmeHtml: marked.parse(readmeText) // Use marked.parse instead of marked()
         };
     }));
 
