@@ -8,12 +8,22 @@
     <script defer src="script.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-50 text-gray-900 font-sans">
+
     <div class="container mx-auto p-6">
-        <h1 class="text-3xl font-bold text-center">📖 GitHub Organization Readmes</h1>
-        <input type="text" id="orgInput" class="border p-2 mt-4 block w-full" placeholder="Enter GitHub Organization">
-        <button onclick="fetchReadmes()" class="bg-blue-500 text-white px-4 py-2 mt-2">Load Readmes</button>
-        <div id="readmeContainer" class="mt-6 space-y-8"></div>
+        <!-- Header Section -->
+        <h1 class="text-4xl font-extrabold text-center text-blue-600">📖 GitHub Organization Readmes</h1>
+        <p class="text-center text-lg text-gray-600 mt-2">Easily view all readme files from your GitHub organization.</p>
+
+        <!-- Input and Button Section -->
+        <div class="mt-6 max-w-2xl mx-auto">
+            <input type="text" id="orgInput" class="w-full border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" placeholder="Enter GitHub Organization">
+            <button onclick="fetchReadmes()" class="w-full bg-blue-500 text-white p-3 mt-4 rounded-md shadow-lg hover:bg-blue-600 transition ease-in-out">Load Readmes</button>
+        </div>
+
+        <!-- Readmes Container -->
+        <div id="readmeContainer" class="mt-6 space-y-6"></div>
     </div>
+
 </body>
 </html>
