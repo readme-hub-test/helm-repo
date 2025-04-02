@@ -58,4 +58,6 @@ async function fetchReadmes() {
 }
 
 // Fetch the READMEs when the page loads
-document.addEventListener("DOMContentLoaded", fetchReadmes);
+document.addEventListener("DOMContentLoaded", async () => {
+    await fetchReadmes(); // Ensure the fetchReadmes function is called within an async context
+});
