@@ -1,4 +1,4 @@
-const ORG_NAME = "your-org-name"; // Set your GitHub organization name here
+const ORG_NAME = "readme-hub-test"; // Set your GitHub organization name here
 
 async function fetchReadmes() {
     const container = document.getElementById("readmeContainer");
