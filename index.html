@@ -1,18 +1,22 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Org Readmes</title>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script defer src="script.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>GitHub README Viewer</title>
+    <!-- Add any styling you want here -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100 text-gray-900">
-    <div class="container mx-auto p-6">
-        <h1 class="text-3xl font-bold text-center">📖 GitHub Organization Readmes</h1>
-        <input type="text" id="orgInput" class="border p-2 mt-4 block w-full" placeholder="Enter GitHub Organization">
-        <button onclick="fetchReadmes()" class="bg-blue-500 text-white px-4 py-2 mt-2">Load Readmes</button>
-        <div id="readmeContainer" class="mt-6 space-y-8"></div>
+<body>
+    <div class="container">
+        <h1>GitHub Repositories - README Viewer</h1>
+        <div id="readmeContainer">
+            <!-- The fetched README content will be displayed here -->
+        </div>
     </div>
+
+    <!-- Script to fetch and display README files -->
+    <script type="module" src="script.js"></script>
+
 </body>
 </html>
