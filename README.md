@@ -1,3 +1,3 @@
-# test-repo-2
+# documentation for the helm-repo
 
-this is a test README
+this is the documentation for the helm-repo
